@@ -2,7 +2,7 @@ import path from "node:path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+    output: process.env.VERCEL ? undefined : "standalone",
   outputFileTracingRoot: path.resolve(process.cwd(), ".."),
   transpilePackages: ["@subboost/core", "@subboost/server-core", "@subboost/ui", "@subboost/config"],
   webpack(config) {
